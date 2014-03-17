@@ -1,0 +1,14 @@
+{
+  "name": "storage",
+  "repo": "segmentio/storage",
+  "description": "simple storage",
+  "version": "1.0.0",
+  "dependencies": {},
+  "devDependencies": {
+    "mocha-phantomjs": "^3.3.2",
+    "mocha": "^1.18.0",
+    "gravy": "^0.1.0",
+    "serve": "^1.4.0",
+    "component": "^0.19.7"
+  }
+}
