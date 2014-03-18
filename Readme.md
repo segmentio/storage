@@ -9,6 +9,44 @@
 $ component install segmentio/storage
 ```
 
+## Example
+
+set / get / clear
+```js
+var store = require('storage')('topic');
+
+store('key', [1, 2, 3]);
+store('key'); // => [1, 2, 3]
+store(); // => { key: [1, 2, 3] }
+store(null);
+store(); // => {}
+```
+
+localStorage events
+```js
+var store = require('storage')('topic');
+
+// tab 1
+store(function(e){
+  assert('key' == e.key);
+  assert(null == e.previous);
+  assert([1, 2, 3] eql e.current);
+  assert(e.url);
+});
+
+store('key', function(e){
+  assert('key' == e.key);
+  assert(null == e.previous);
+  assert([1, 2, 3] eql e.current);
+  assert(e.url);
+});
+
+// tab 2
+var store = require('storage')('topic');
+
+store('key', [1, 2, 3]);
+```
+
 ## API
 
 #### storage(topic)
