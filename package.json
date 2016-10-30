@@ -1,8 +1,7 @@
 {
-  "name": "storage",
-  "repo": "segmentio/storage",
+  "name": "@segment/storage",
   "description": "simple storage",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "dependencies": {
     "component-emitter": "^1.2.1",
     "component-events": "^1.0.10",
@@ -15,5 +14,21 @@
     "mocha-phantomjs": "^3.3.2",
     "mochify": "^2.18.1",
     "phantomjs": "^2.1.7"
-  }
+  },
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mochify"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/segmentio/storage.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/segmentio/storage/issues"
+  },
+  "homepage": "https://github.com/segmentio/storage#readme"
 }
