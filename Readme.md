@@ -6,14 +6,14 @@
 ## Installation
 
 ```bash
-$ component install segmentio/storage
+$ npm install @segment/storage
 ```
 
 ## Example
 
 set / get / clear
 ```js
-var store = require('storage')('topic');
+var store = require('@segment/storage')('topic');
 
 store('key', [1, 2, 3]);
 store('key'); // => [1, 2, 3]
@@ -24,7 +24,7 @@ store(); // => {}
 
 localStorage events
 ```js
-var store = require('storage')('topic');
+var store = require('@segment/storage')('topic');
 
 // tab 1
 store(function(e){
@@ -42,7 +42,7 @@ store('key', function(e){
 });
 
 // tab 2
-var store = require('storage')('topic');
+var store = require('@segment/storage')('topic');
 
 store('key', [1, 2, 3]);
 ```
@@ -83,4 +83,3 @@ store('key', [1, 2, 3]);
 ## License
 
   (MIT)
-

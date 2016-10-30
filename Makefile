@@ -1,42 +1,18 @@
+.DEFAULT_GOAL: build/build.js
 
-BROWSERS="chrome, safari, firefox"
-BINS=node_modules/.bin
-URL=http://localhost:3000/test
-P=$(BINS)/mocha-phantomjs
-C=$(BINS)/component
-S=$(BINS)/serve
-G=$(BINS)/gravy
+build: build/build.js
+build/build.js: index.js node_modules
+	mkdir -p $(dir $@)
+	node_modules/.bin/browserify $< > $@
 
-build: node_modules index.js components
-	@$(C) build --dev
-
-components: component.json
-	@$(C) install --dev
-
-test: server build
-	@open $(URL)
-
-test-phantom: server build
-	@$(P) $(URL)
-
-test-sauce: server build
-	@BROWSERS=$(BROWSERS) $(G) \
-		--url $(URL)
+test: node_modules
+	node_modules/.bin/mochify
 
 node_modules: package.json
-	@npm install
+	npm install
+	touch $@
 
-server: kill
-	@$(S) . &> /dev/null & echo $$! > test/pid
-	@sleep 1
+clean:
+	rm -rf build
 
-kill:
-	@-test -e test/pid \
-		&& kill $(cat test/pid) \
-		&& rm -f test/pid
-
-clean: kill
-	rm -rf components build
-
-.PHONY: clean
-
+.PHONY: clean test

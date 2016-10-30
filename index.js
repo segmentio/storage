@@ -3,10 +3,10 @@
  * Module dependencies.
  */
 
-var parse = require('unserialize');
-var Emitter = require('emitter');
-var events = require('events');
-var store = require('store');
+var parse = require('yields-unserialize');
+var Emitter = require('component-emitter');
+var events = require('component-events');
+var store = require('yields-store');
 
 /**
  * Expose `storage`
